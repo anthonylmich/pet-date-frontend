@@ -1,0 +1,30 @@
+<script>
+import axios from "axios";
+export default {
+  data: function () {
+    return {
+      pet: {},
+    };
+  },
+  created: function () {
+    axios.get("/pets/" + this.$route.params.id).then((response) => {
+      console.log("pets show", response);
+      this.pet = response.data;
+    });
+  },
+  methods: {},
+};
+</script>
+
+<template>
+  <div class="pets-show">
+    <h2>{{ pet.name }}</h2>
+    <img v-bind:src="pet.img_url" v-bind:alt="pet.name" />
+    <p>{{ pet.description }}</p>
+    <p>{{ pet.gender }}</p>
+    <p>{{ pet.fixed }}</p>
+    <p>{{ pet.likes }}</p>
+    <p>{{ pet.dislikes }}</p>
+    <router-link to="/pets">Back to all pets</router-link>
+  </div>
+</template>

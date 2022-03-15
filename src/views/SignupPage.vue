@@ -36,6 +36,14 @@ export default {
         <input type="text" v-model="newUserParams.name" />
       </div>
       <div>
+        <label>Location city:</label>
+        <input type="location_city" v-model="newUserParams.location_city" />
+      </div>
+      <div>
+        <label>Phone number:</label>
+        <input type="phone_number" v-model="newUserParams.phone_number" />
+      </div>
+      <div>
         <label>Email:</label>
         <input type="email" v-model="newUserParams.email" />
       </div>
