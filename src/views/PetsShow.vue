@@ -25,6 +25,7 @@ export default {
     <p>{{ pet.fixed }}</p>
     <p>{{ pet.likes }}</p>
     <p>{{ pet.dislikes }}</p>
+    <router-link v-bind:to="`/pets/${pet.id}/edit`">Edit pet</router-link>
     <router-link to="/pets">Back to all pets</router-link>
   </div>
 </template>
