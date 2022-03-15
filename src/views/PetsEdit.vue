@@ -28,10 +28,10 @@ export default {
           this.errors = error.response.data.errors;
         });
     },
-    destroyPhoto: function (photo) {
-      axios.delete("/photos/" + photo.id).then((response) => {
-        console.log("photos destroy", response);
-        this.$router.push("/photos");
+    destroyPet: function (pet) {
+      axios.delete("/pets/" + pet.id).then((response) => {
+        console.log("pets destroy", response);
+        this.$router.push("/pets");
       });
     },
   },
@@ -60,7 +60,7 @@ export default {
       Fixed:
       <input type="boolean" v-model="editPetParams.fixed" />
       <input type="submit" value="Update" />
-      <button v-on:click="destroyPhoto(photo)">Destroy photo</button>
+      <button v-on:click="destroyPet(pet)">Destroy pet</button>
     </form>
   </div>
 </template>
