@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import SignupPage from "../views/SignupPage.vue";
 import LoginPage from "../views/LoginPage.vue";
 import LogoutPage from "../views/LogoutPage.vue";
+import UsersShow from "../views/UsersShow.vue";
 import HomeView from "../views/HomeView.vue";
 import PetsIndex from "../views/PetsIndex.vue";
 import PetsNew from "../views/PetsNew.vue";
@@ -28,6 +29,11 @@ const routes = [
     path: "/logout",
     name: "logout-page",
     component: LogoutPage,
+  },
+  {
+    path: "/users/:id",
+    name: "profile-page",
+    component: UsersShow,
   },
   {
     path: "/pets",
