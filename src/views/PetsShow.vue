@@ -20,11 +20,12 @@ export default {
   <div class="pets-show">
     <h2>{{ pet.name }}</h2>
     <img v-bind:src="pet.img_url" v-bind:alt="pet.name" />
-    <p>{{ pet.description }}</p>
-    <p>{{ pet.gender }}</p>
-    <p>{{ pet.fixed }}</p>
-    <p>{{ pet.likes }}</p>
-    <p>{{ pet.dislikes }}</p>
+    <p>Description: {{ pet.description }}</p>
+    <p>Gender: {{ pet.gender }}</p>
+    <p>Fixed?: {{ pet.fixed }}</p>
+    <p>Likes: {{ pet.likes }}</p>
+    <p>Dislikes: {{ pet.dislikes }}</p>
+    <p>owner data: {{ pet.user }}</p>
     <router-link v-bind:to="`/pets/${pet.id}/edit`">Edit pet</router-link>
     <router-link to="/pets">Back to all pets</router-link>
   </div>
