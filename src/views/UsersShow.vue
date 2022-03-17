@@ -27,7 +27,7 @@ export default {
     <p>{{ user.email }}</p>
     <p>{{ user.location_city }}</p>
     <p>{{ user.phone_number }}</p>
-    <router-link v-bind:to="`/users/${user.id}/edit`">Edit user</router-link>
+    <div v-if="user_id == user.id"><router-link v-bind:to="`/users/${user.id}/edit`">Edit user</router-link></div>
     <!-- router link is not working yet -->
   </div>
   <h1>User Pets</h1>
