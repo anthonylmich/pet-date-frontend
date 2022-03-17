@@ -25,7 +25,15 @@ export default {
     <p>Fixed?: {{ pet.fixed }}</p>
     <p>Likes: {{ pet.likes }}</p>
     <p>Dislikes: {{ pet.dislikes }}</p>
-    <p>owner data: {{ pet.user }}</p>
+    <p>
+      owner name:
+      <router-link v-bind:to="`/users/${pet.user.id}`">{{ pet.user.name }}</router-link>
+    </p>
+    <p>Area located: {{ pet.user.location_city }}</p>
+    <!-- <div v-if="localStorage.getItem('user_id') == pet.user.id">
+      <router-link v-bind:to="`/pets/${pet.id}/edit`">Edit pet</router-link>
+      <p>It works</p>
+    </div> -->
     <router-link v-bind:to="`/pets/${pet.id}/edit`">Edit pet</router-link>
     <router-link to="/pets">Back to all pets</router-link>
   </div>

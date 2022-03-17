@@ -49,4 +49,13 @@ export default {
       <input type="submit" value="Create" />
     </form>
   </div>
+  <div>
+    <h2>{{ newPetParams.name }}</h2>
+    <img v-bind:src="newPetParams.img_url" v-bind:alt="newPetParams.name" />
+    <p>Description: {{ newPetParams.description }}</p>
+    <p>Gender: {{ newPetParams.gender }}</p>
+    <p>Fixed?: {{ newPetParams.fixed }}</p>
+    <p>Likes: {{ newPetParams.likes }}</p>
+    <p>Dislikes: {{ newPetParams.dislikes }}</p>
+  </div>
 </template>

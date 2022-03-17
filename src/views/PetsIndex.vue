@@ -26,7 +26,9 @@ export default {
     <h1>All Pets</h1>
     <div v-for="pet in pets" v-bind:key="pet.id">
       <h2>{{ pet.name }}</h2>
-      <img v-bind:src="pet.img_url" v-bind:alt="pet.name" />
+      <router-link v-bind:to="`/pets/${pet.id}`">
+        <img v-bind:src="pet.img_url" v-bind:alt="pet.name" />
+      </router-link>
       <p>{{ pet.description }}</p>
       <p>Owner: {{ pet.user.name }}</p>
       <router-link v-bind:to="`/pets/${pet.id}`">More details</router-link>

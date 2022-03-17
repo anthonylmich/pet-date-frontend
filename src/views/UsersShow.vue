@@ -8,9 +8,9 @@ export default {
     };
   },
   created: function () {
-    axios.get("/users/" + localStorage.user_id).then((response) => {
+    axios.get("/users/" + this.$route.params.id).then((response) => {
       console.log("users show", response.data);
-      console.log("users show", response.data.pets);
+      console.log("pets belonged to user", response.data.pets);
       this.user = response.data;
       this.userPets = response.data.pets;
       console.log(response.data.pets);
@@ -32,7 +32,9 @@ export default {
   <h1>User Pets</h1>
   <div v-for="pet in userPets" v-bind:key="pet.id">
     <h3>{{ pet.name }}</h3>
-    <img v-bind:src="pet.img_url" v-bind:alt="pet.name" />
+    <router-link v-bind:to="`/pets/${pet.id}`">
+      <img v-bind:src="pet.img_url" v-bind:alt="pet.name" />
+    </router-link>
     <p>Description: {{ pet.description }}</p>
     <p>Gender: {{ pet.gender }}</p>
     <p>Fixed?: {{ pet.fixed }}</p>

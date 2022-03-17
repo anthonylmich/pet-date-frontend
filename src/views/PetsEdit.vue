@@ -59,8 +59,18 @@ export default {
       <input type="text" v-model="editPetParams.dislikes" />
       Fixed:
       <input type="boolean" v-model="editPetParams.fixed" />
-      <input type="submit" value="Update" />
       <button v-on:click="destroyPet(pet)">Destroy pet</button>
+      <button v-on:click="updatePet(pet)">Update pet</button>
     </form>
+  </div>
+  <h1>Example Pet Show:</h1>
+  <div>
+    <h2>{{ editPetParams.name }}</h2>
+    <img v-bind:src="editPetParams.img_url" v-bind:alt="editPetParams.name" />
+    <p>Description: {{ editPetParams.description }}</p>
+    <p>Gender: {{ editPetParams.gender }}</p>
+    <p>Fixed?: {{ editPetParams.fixed }}</p>
+    <p>Likes: {{ editPetParams.likes }}</p>
+    <p>Dislikes: {{ editPetParams.dislikes }}</p>
   </div>
 </template>
