@@ -8,7 +8,7 @@ export default {
   },
   created: function () {
     axios.get("/pets/" + this.$route.params.id).then((response) => {
-      console.log("pets show", response);
+      console.log("pets show", response.data);
       this.pet = response.data;
     });
   },

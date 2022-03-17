@@ -12,8 +12,9 @@ export default {
   methods: {
     indexPets: function () {
       axios.get("/pets").then((response) => {
-        console.log("pets index", response);
+        console.log("pets index", response.data);
         this.pets = response.data;
+        console.log(this.pets);
       });
     },
   },
@@ -27,7 +28,7 @@ export default {
       <h2>{{ pet.name }}</h2>
       <img v-bind:src="pet.img_url" v-bind:alt="pet.name" />
       <p>{{ pet.description }}</p>
-      <p>{{ pet.user }}</p>
+      <p>Owner: {{ pet.user.name }}</p>
       <router-link v-bind:to="`/pets/${pet.id}`">More details</router-link>
     </div>
   </div>

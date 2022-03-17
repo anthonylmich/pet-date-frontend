@@ -12,7 +12,7 @@
     |
     <router-link to="/pets/new">New Pet</router-link>
     |
-    <router-link to="/users/:id">Profile</router-link>
+    <router-link to="/users/:this.current_user.id">Profile</router-link>
   </nav>
   <router-view />
 </template>
