@@ -5,6 +5,7 @@ export default {
     return {
       user: {},
       userPets: {},
+      user_id: localStorage.user_id,
     };
   },
   created: function () {
@@ -26,7 +27,7 @@ export default {
     <p>{{ user.email }}</p>
     <p>{{ user.location_city }}</p>
     <p>{{ user.phone_number }}</p>
-    <!-- <router-link v-bind:to="`/users/${user.id}/edit`">Edit user</router-link> -->
+    <router-link v-bind:to="`/users/${user.id}/edit`">Edit user</router-link>
     <!-- router link is not working yet -->
   </div>
   <h1>User Pets</h1>

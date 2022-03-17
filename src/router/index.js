@@ -8,6 +8,7 @@ import PetsIndex from "../views/PetsIndex.vue";
 import PetsNew from "../views/PetsNew.vue";
 import PetsShow from "../views/PetsShow.vue";
 import PetsEdit from "../views/PetsEdit.vue";
+import UsersEdit from "../views/UsersEdit.vue";
 
 const routes = [
   {
@@ -54,6 +55,11 @@ const routes = [
     path: "/pets/:id/edit",
     name: "pets-edit",
     component: PetsEdit,
+  },
+  {
+    path: "/Users/:id/edit",
+    name: "Users-edit",
+    component: UsersEdit,
   },
 ];
 
