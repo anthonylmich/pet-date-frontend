@@ -22,16 +22,14 @@ export default {
 </script>
 
 <template>
-  <div class="pets-index">
+  <div class="conversations-index">
     <h1>All Conversations</h1>
     <div v-for="conversation in conversations" v-bind:key="conversation.id">
-      <h2>{{ conversation.partner.name }}</h2>
-      <!-- <router-link v-bind:to="`/pets/${pet.id}`">
-        <img v-bind:src="pet.img_url" v-bind:alt="pet.name" />
+      <h2>{{ conversation.partner }}</h2>
+      <router-link v-bind:to="`/conversations/${conversation.id}`">
+        <h1>{{ conversation.partner.name }}</h1>
       </router-link>
-      <p>{{ pet.description }}</p>
-      <p>Owner: {{ pet.user.name }}</p>
-      <router-link v-bind:to="`/pets/${pet.id}`">More details</router-link> -->
+      {{ conversation.messages }}
     </div>
   </div>
 </template>
