@@ -1,3 +1,12 @@
+<script>
+export default {
+  data: function () {
+    return {
+      user_id: localStorage.user_id,
+    };
+  },
+};
+</script>
 <template>
   <nav>
     <router-link to="/">Home</router-link>
@@ -12,7 +21,9 @@
     |
     <router-link to="/pets/new">New Pet</router-link>
     |
-    <router-link to="/users/:this.current_user.id">Profile</router-link>
+    <router-link :to="`/users/${user_id}`">Profile</router-link>
+    |
+    <router-link to="/conversations">Conversations</router-link>
   </nav>
   <router-view />
 </template>

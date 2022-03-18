@@ -25,7 +25,7 @@ export default {
   <div class="pets-index">
     <h1>All Conversations</h1>
     <div v-for="conversation in conversations" v-bind:key="conversation.id">
-      <h2>{{ conversation }}</h2>
+      <h2>{{ conversation.partner.name }}</h2>
       <!-- <router-link v-bind:to="`/pets/${pet.id}`">
         <img v-bind:src="pet.img_url" v-bind:alt="pet.name" />
       </router-link>

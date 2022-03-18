@@ -4,12 +4,13 @@ export default {
   data: function () {
     return {
       user: {},
+      user_id: localStorage.user_id,
       editUserParams: {},
       errors: [],
     };
   },
   created: function () {
-    axios.get("/users/" + this.$route.params.id).then((response) => {
+    axios.get("/users/" + this.user_id).then((response) => {
       console.log("users show", response);
       this.user = response.data;
       this.editUserParams = this.user;
@@ -31,7 +32,7 @@ export default {
     destroyUser: function (user) {
       axios.delete("/users/" + user.id).then((response) => {
         console.log("users destroy", response);
-        this.$router.push("/users");
+        this.$router.push("/logout");
       });
     },
   },
@@ -52,10 +53,12 @@ export default {
       Phone Number:
       <input type="text" v-model="editUserParams.phone_number" />
       <div>
-        <button v-on:click="destroyUser(user)">Destroy user</button>
         <button v-on:click="updateUser(user)">Update user</button>
       </div>
     </form>
+    <div>
+      <button v-on:click="destroyUser(user)">Destroy user</button>
+    </div>
   </div>
   <h1>Example User Show:</h1>
   <div>
