@@ -15,15 +15,17 @@ export default {
       console.log("conversations show", response.data);
       this.conversation = response.data;
       this.messages = response.data.messages;
-      this.newMessageParams = response.data.id;
+      this.newMessageParams = {};
     });
   },
   methods: {
     createMessage: function () {
+      this.newMessageParams.conversation_id = this.$route.params.id;
       axios
         .post("/messages", this.newMessageParams)
         .then((response) => {
           console.log("messages create", response);
+          this.messages = this.conversation.messages;
         })
         .catch((error) => {
           console.log("messages create error", error.response);

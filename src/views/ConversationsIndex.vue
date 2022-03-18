@@ -25,11 +25,11 @@ export default {
   <div class="conversations-index">
     <h1>All Conversations</h1>
     <div v-for="conversation in conversations" v-bind:key="conversation.id">
-      <h2>{{ conversation.partner }}</h2>
+      <!-- <h2>{{ conversation.partner }}</h2> -->
       <router-link v-bind:to="`/conversations/${conversation.id}`">
-        <h1>{{ conversation.partner.name }}</h1>
+        <h1>Conversation with {{ conversation.partner.name }}</h1>
       </router-link>
-      {{ conversation.messages }}
+      {{ conversation.messages[conversation.messages.length - 1] }}
     </div>
   </div>
 </template>
