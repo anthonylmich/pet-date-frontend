@@ -34,6 +34,9 @@ export default {
         this.$router.push("/pets");
       });
     },
+    cancelChange: function () {
+      this.$router.push("/pets/" + this.$route.params.id);
+    },
   },
 };
 </script>
@@ -61,6 +64,7 @@ export default {
       <input type="boolean" v-model="editPetParams.fixed" />
       <button v-on:click="destroyPet(pet)">Destroy pet</button>
       <button v-on:click="updatePet(pet)">Update pet</button>
+      <button v-on:click="cancelChange()">Cancel</button>
     </form>
   </div>
   <h1>Example Pet Show:</h1>

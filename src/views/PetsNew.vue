@@ -21,6 +21,9 @@ export default {
           this.errors = error.response.data.errors;
         });
     },
+    cancelChange: function () {
+      this.$router.push("/pets");
+    },
   },
 };
 </script>
@@ -47,6 +50,7 @@ export default {
       Fixed:
       <input type="boolean" v-model="newPetParams.fixed" />
       <input type="submit" value="Create" />
+      <button v-on:click="cancelChange()">Cancel</button>
     </form>
   </div>
   <div>

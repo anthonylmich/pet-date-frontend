@@ -35,6 +35,9 @@ export default {
         this.$router.push("/logout");
       });
     },
+    cancelChange: function () {
+      this.$router.push("/users/" + this.user_id);
+    },
   },
 };
 </script>
@@ -58,6 +61,9 @@ export default {
     </form>
     <div>
       <button v-on:click="destroyUser(user)">Destroy user</button>
+    </div>
+    <div>
+      <button v-on:click="cancelChange()">Cancel</button>
     </div>
   </div>
   <h1>Example User Show:</h1>
