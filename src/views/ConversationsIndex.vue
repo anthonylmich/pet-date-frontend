@@ -29,7 +29,10 @@ export default {
       <router-link v-bind:to="`/conversations/${conversation.id}`">
         <h1>Conversation with {{ conversation.partner.name }}</h1>
       </router-link>
-      <!-- {{ conversation.messages[conversation.messages.length - 1].content }} -->
+      <p v-if="conversation.last_message">
+        {{ conversation.last_message.content }}
+      </p>
+      <p v-else>No Messages In Conversation</p>
     </div>
   </div>
 </template>
