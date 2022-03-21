@@ -6,6 +6,7 @@ export default {
       pet: { user: {} },
       user_id: localStorage.user_id,
       newConversationParams: {},
+      newConversation: {},
     };
   },
   created: function () {
@@ -22,7 +23,9 @@ export default {
         .post("/conversations", this.newConversationParams)
         .then((response) => {
           console.log("conversations create", response);
-          this.$router.push("/conversations");
+          this.newConversation = response.data;
+          console.log(this.newConversation);
+          this.$router.push("/conversations/" + this.newConversation.id);
         })
         .catch((error) => {
           console.log("conversations create error", error.response);

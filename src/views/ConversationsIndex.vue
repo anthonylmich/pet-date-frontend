@@ -29,7 +29,7 @@ export default {
       <router-link v-bind:to="`/conversations/${conversation.id}`">
         <h1>Conversation with {{ conversation.partner.name }}</h1>
       </router-link>
-      {{ conversation.messages[conversation.messages.length - 1].content }}
+      <!-- {{ conversation.messages[conversation.messages.length - 1].content }} -->
     </div>
   </div>
 </template>

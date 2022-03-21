@@ -48,8 +48,16 @@ export default {
       Dislikes:
       <input type="text" v-model="newPetParams.dislikes" />
       Fixed:
-      <input type="boolean" v-model="newPetParams.fixed" />
+      <input type="radio" id="one" value="true" v-model="newPetParams.fixed" />
+      <label for="one">True</label>
+      <br />
+      <input type="radio" id="two" value="false" v-model="newPetParams.fixed" />
+      <label for="two">False</label>
+      <br />
+      <span>Picked: {{ newPetParams.fixed }}</span>
+
       <input type="submit" value="Create" />
+
       <button v-on:click="cancelChange()">Cancel</button>
     </form>
   </div>
