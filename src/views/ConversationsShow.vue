@@ -3,9 +3,9 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      conversation: {},
+      conversation: { partner: {} },
       messages: [],
-      newMessagesParams: {},
+      newMessageParams: {},
       user_id: localStorage.user_id,
       errors: [],
     };
@@ -25,7 +25,8 @@ export default {
         .post("/messages", this.newMessageParams)
         .then((response) => {
           console.log("messages create", response);
-          this.messages = this.conversation.messages;
+          this.messages.push(response.data);
+          this.newMessageParams = {};
         })
         .catch((error) => {
           console.log("messages create error", error.response);
@@ -42,7 +43,6 @@ export default {
     <div v-for="message in messages" v-bind:key="message.id">
       <h3>{{ message.content }}</h3>
     </div>
-    <p>{{ this.newMessageParams }}</p>
   </div>
   <div>
     <form v-on:submit.prevent="createMessage()">

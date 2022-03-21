@@ -3,7 +3,7 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      pet: {},
+      pet: { user: {} },
       user_id: localStorage.user_id,
     };
   },
