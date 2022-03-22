@@ -14,7 +14,8 @@ export default {
     axios.get("/conversations/" + this.$route.params.id).then((response) => {
       console.log("conversations show", response.data);
       this.conversation = response.data;
-      this.messages = response.data.messages;
+      this.messages = this.conversation.messages;
+      console.log(this.conversation.messages);
       this.newMessageParams = {};
     });
   },
