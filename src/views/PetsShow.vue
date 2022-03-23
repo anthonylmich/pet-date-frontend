@@ -37,27 +37,57 @@ export default {
 </script>
 
 <template>
-  <div>
-    <button v-on:click="createConversation()">Message Owner</button>
-  </div>
-  <div class="pets-show">
-    <h2>{{ pet.name }}</h2>
-    <img v-bind:src="pet.img_url" v-bind:alt="pet.name" />
-    <p>Description: {{ pet.description }}</p>
-    <p>Gender: {{ pet.gender }}</p>
-    <p>Fixed?: {{ pet.fixed }}</p>
-    <p>Likes: {{ pet.likes }}</p>
-    <p>Dislikes: {{ pet.dislikes }}</p>
-    <p>
-      owner name:
-      <router-link v-bind:to="`/users/${pet.user.id}`">{{ pet.user.name }}</router-link>
-      <br />
-    </p>
-    <p>Area located: {{ pet.user.location_city }}</p>
-    <div v-if="user_id == pet.user.id">
-      <router-link v-bind:to="`/pets/${pet.id}/edit`">Edit pet</router-link>
-    </div>
-    <!-- <router-link v-bind:to="`/pets/${pet.id}/edit`">Edit pet</router-link> -->
-    <router-link to="/pets">Back to all pets</router-link>
-  </div>
+  <main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+
+    <!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Single Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-8 entries">
+            <article class="entry entry-single">
+              <div class="entry-img">
+                <img v-bind:src="pet.img_url" v-bind:alt="pet.name" />
+              </div>
+
+              <h2 class="entry-title">
+                <a href="blog-single.html">{{ pet.name }}</a>
+              </h2>
+
+              <div class="entry-meta">
+                <ul>
+                  <li class="d-flex align-items-center">
+                    <i class="bi bi-person"></i>
+                    <router-link v-bind:to="`/users/${pet.user.id}`">{{ pet.user.name }}</router-link>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="entry-content">
+                <div>
+                  <button v-on:click="createConversation()">Message Owner</button>
+                </div>
+                <p>Description: {{ pet.description }}</p>
+                <p>Gender: {{ pet.gender }}</p>
+                <p>Fixed?: {{ pet.fixed }}</p>
+                <p>Likes: {{ pet.likes }}</p>
+                <p>Dislikes: {{ pet.dislikes }}</p>
+                <p>Area located: {{ pet.user.location_city }}</p>
+                <div v-if="user_id == pet.user.id">
+                  <router-link v-bind:to="`/pets/${pet.id}/edit`">Edit pet</router-link>
+                </div>
+                <router-link to="/pets">Back to all pets</router-link>
+              </div>
+            </article>
+            <!-- End blog entry -->
+          </div>
+          <!-- End blog entries list -->
+        </div>
+      </div>
+    </section>
+    <!-- End Blog Single Section -->
+  </main>
+  <!-- End #main -->
 </template>
