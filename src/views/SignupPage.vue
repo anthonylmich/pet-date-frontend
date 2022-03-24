@@ -25,37 +25,78 @@ export default {
 </script>
 
 <template>
-  <div class="signup">
-    <form v-on:submit.prevent="submit()">
-      <h1>Signup</h1>
-      <ul>
-        <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
-      </ul>
-      <div>
-        <label>Name:</label>
-        <input type="text" v-model="newUserParams.name" />
-      </div>
-      <div>
-        <label>Location city:</label>
-        <input type="location_city" v-model="newUserParams.location_city" />
-      </div>
-      <div>
-        <label>Phone number:</label>
-        <input type="phone_number" v-model="newUserParams.phone_number" />
-      </div>
-      <div>
-        <label>Email:</label>
-        <input type="email" v-model="newUserParams.email" />
-      </div>
-      <div>
-        <label>Password:</label>
-        <input type="password" v-model="newUserParams.password" />
-      </div>
-      <div>
-        <label>Password confirmation:</label>
-        <input type="password" v-model="newUserParams.password_confirmation" />
-      </div>
-      <input type="submit" value="Submit" />
-    </form>
-  </div>
+  <body>
+    <main id="main">
+      <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+          <div class="row">
+            <div class="col-lg-8 entries">
+              <div class="blog-comments">
+                <div class="reply-form">
+                  <h4>Signup</h4>
+                  <ul>
+                    <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
+                  </ul>
+                  <form v-on:submit.prevent="submit()">
+                    <div class="row">
+                      <div class="col form-group">
+                        <input type="text" v-model="newUserParams.name" class="form-control" placeholder="Your Name*" />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col form-group">
+                        <input
+                          type="location_city"
+                          v-model="newUserParams.location_city"
+                          class="form-control"
+                          placeholder="Your Location(city)*"
+                        />
+                      </div>
+                      <div class="col form-group">
+                        <input
+                          type="phone_number"
+                          v-model="newUserParams.phone_number"
+                          class="form-control"
+                          placeholder="Your Phone Number*"
+                        />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col form-group">
+                        <input
+                          type="email"
+                          v-model="newUserParams.email"
+                          class="form-control"
+                          placeholder="Your Email*"
+                        />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col form-group">
+                        <input
+                          type="password"
+                          v-model="newUserParams.password"
+                          class="form-control"
+                          placeholder="Password*"
+                        />
+                      </div>
+                      <div class="col form-group">
+                        <input
+                          type="password"
+                          v-model="newUserParams.password_confirmation"
+                          class="form-control"
+                          placeholder="Password Confirmation*"
+                        />
+                      </div>
+                    </div>
+                    <button type="submit" value="Submit" class="btn btn-primary">Signup</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
 </template>
