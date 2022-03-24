@@ -43,34 +43,77 @@ export default {
 </script>
 
 <template>
-  <div class="users-edit">
-    <h1>Edit User</h1>
-    <form v-on:submit.prevent="updateUser(user)">
-      <ul>
-        <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
-      </ul>
-      Name:
-      <input type="text" v-model="editUserParams.name" />
-      Location:
-      <input type="text" v-model="editUserParams.location_city" />
-      Phone Number:
-      <input type="text" v-model="editUserParams.phone_number" />
-      <div>
-        <button v-on:click="updateUser(user)">Update user</button>
+  <body>
+    <main id="main">
+      <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+          <div class="row">
+            <div class="col-lg-8 entries">
+              <div class="blog-comments">
+                <div class="reply-form">
+                  <h4>Edit User</h4>
+                  <ul>
+                    <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
+                  </ul>
+                  <form v-on:submit.prevent="updateUser(User)">
+                    <div class="row">
+                      <div class="col form-group">
+                        Name:
+                        <input type="text" class="form-control" v-model="editUserParams.name" placeholder="User Name" />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col form-group">
+                        Location(city):
+                        <input
+                          type="text"
+                          class="form-control"
+                          v-model="editUserParams.location_city"
+                          placeholder="User Location(city)"
+                        />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col form-group">
+                        Phone Number
+                        <input
+                          type="text"
+                          class="form-control"
+                          v-model="editUserParams.phone_number"
+                          placeholder="Phone Number"
+                        />
+                      </div>
+                    </div>
+
+                    <button v-on:click="destroyUser(user)" class="btn btn-primary">Destroy</button>
+                    <button v-on:click="updateUser(user)" class="btn btn-primary">Update</button>
+                    <button v-on:click="cancelChange()" class="btn btn-primary">Cancel</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+  <h1>Example User Info:</h1>
+  <section id="blog" class="blog">
+    <div class="container" data-aos="fade-up">
+      <div class="row">
+        <div class="col-lg-8 entries">
+          <article class="entry entry-single">
+            <h2 class="entry-title">
+              <a>{{ editUserParams.name }}</a>
+            </h2>
+
+            <div class="entry-content">
+              <p>Likes: {{ editUserParams.location_city }}</p>
+              <p>Dislikes: {{ editUserParams.phone_number }}</p>
+            </div>
+          </article>
+        </div>
       </div>
-    </form>
-    <div>
-      <button v-on:click="destroyUser(user)">Destroy user</button>
     </div>
-    <div>
-      <button v-on:click="cancelChange()">Cancel</button>
-    </div>
-  </div>
-  <h1>Example User Show:</h1>
-  <div>
-    <h2>{{ editUserParams.name }}</h2>
-    <img v-bind:src="editUserParams.img_url" v-bind:alt="editUserParams.name" />
-    <p>Location: {{ editUserParams.location_city }}</p>
-    <p>Phone Number: {{ editUserParams.phone_number }}</p>
-  </div>
+  </section>
 </template>
