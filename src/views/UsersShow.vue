@@ -22,24 +22,63 @@ export default {
 </script>
 
 <template>
-  <div class="users-show">
-    <h1>{{ user.name }}</h1>
-    <p>{{ user.email }}</p>
-    <p>{{ user.location_city }}</p>
-    <p>{{ user.phone_number }}</p>
-    <div v-if="user_id == user.id"><router-link v-bind:to="`/users/${user.id}/edit`">Edit user</router-link></div>
-    <!-- router link is not working yet -->
-  </div>
-  <h1>User Pets</h1>
-  <div v-for="pet in userPets" v-bind:key="pet.id">
-    <h3>{{ pet.name }}</h3>
-    <router-link v-bind:to="`/pets/${pet.id}`">
-      <img v-bind:src="pet.img_url" v-bind:alt="pet.name" />
-    </router-link>
-    <p>Description: {{ pet.description }}</p>
-    <p>Gender: {{ pet.gender }}</p>
-    <p>Fixed?: {{ pet.fixed }}</p>
-    <p>Likes: {{ pet.likes }}</p>
-    <p>Dislikes: {{ pet.dislikes }}</p>
-  </div>
+  <main id="main">
+    <!-- ======= Blog Single Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-8 entries">
+            <article class="entry entry-single">
+              <div>
+                <h2 class="entry-title">
+                  <a>{{ user.name }}</a>
+                </h2>
+              </div>
+
+              <div class="entry-meta">
+                <ul>
+                  <li class="d-flex align-items-center">
+                    <i class="bi bi-person"></i>
+                    <a>{{ user.email }}</a>
+                  </li>
+                  <li class="d-flex align-items-center">
+                    <i class="bi bi-clock"></i>
+                    <a>
+                      <time datetime="2020-01-01">{{ user.location_city }}</time>
+                    </a>
+                  </li>
+                  <li class="d-flex align-items-center">
+                    <i class="bi bi-chat-dots"></i>
+                    <a>{{ user.phone_number }}</a>
+                  </li>
+                  <li class="d-flex align-items-center">
+                    <div v-if="user_id == user.id">
+                      <router-link v-bind:to="`/users/${user.id}/edit`">Edit user</router-link>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <h1>User Pets</h1>
+              <div class="entry-content" v-for="pet in userPets" v-bind:key="pet.id">
+                <h2>{{ pet.name }}</h2>
+
+                <blockquote>
+                  <router-link v-bind:to="`/pets/${pet.id}`">
+                    <img v-bind:src="pet.img_url" v-bind:alt="pet.name" />
+                  </router-link>
+                </blockquote>
+                <h3>Description:</h3>
+                <p>{{ pet.description }}</p>
+                <p>Gender: {{ pet.gender }}</p>
+              </div>
+            </article>
+            <!-- End blog entry -->
+          </div>
+          <!-- End blog entries list -->
+        </div>
+      </div>
+    </section>
+    <!-- End Blog Single Section -->
+  </main>
+  <!-- End #main -->
 </template>
