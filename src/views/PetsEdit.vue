@@ -143,13 +143,31 @@ export default {
     </main>
   </body>
   <h1>Example Pet Show:</h1>
-  <div>
-    <h2>{{ editPetParams.name }}</h2>
-    <img v-bind:src="editPetParams.img_url" v-bind:alt="editPetParams.name" />
-    <p>Description: {{ editPetParams.description }}</p>
-    <p>Gender: {{ editPetParams.gender }}</p>
-    <p>Fixed?: {{ editPetParams.fixed }}</p>
-    <p>Likes: {{ editPetParams.likes }}</p>
-    <p>Dislikes: {{ editPetParams.dislikes }}</p>
-  </div>
+  <section id="blog" class="blog">
+    <div class="container" data-aos="fade-up">
+      <div class="row">
+        <div class="col-lg-8 entries">
+          <article class="entry entry-single">
+            <div class="entry-img">
+              <img v-bind:src="editPetParams.img_url" v-bind:alt="editPetParams.name" />
+            </div>
+
+            <h2 class="entry-title">
+              <a>{{ editPetParams.name }}</a>
+            </h2>
+
+            <div class="entry-content">
+              <p>Description: {{ editPetParams.description }}</p>
+              <p>Gender: {{ editPetParams.gender }}</p>
+              <p>Fixed?: {{ editPetParams.fixed }}</p>
+              <p>Likes: {{ editPetParams.likes }}</p>
+              <p>Dislikes: {{ editPetParams.dislikes }}</p>
+            </div>
+          </article>
+          <!-- End blog entry -->
+        </div>
+        <!-- End blog entries list -->
+      </div>
+    </div>
+  </section>
 </template>
