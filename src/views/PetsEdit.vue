@@ -42,31 +42,106 @@ export default {
 </script>
 
 <template>
-  <div class="pets-edit">
-    <h1>Edit Pet</h1>
-    <form v-on:submit.prevent="updatePet(pet)">
-      <ul>
-        <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
-      </ul>
-      Name:
-      <input type="text" v-model="editPetParams.name" />
-      Description:
-      <input type="text" v-model="editPetParams.description" />
-      Gender:
-      <input type="text" v-model="editPetParams.gender" />
-      Img_url:
-      <input type="text" v-model="editPetParams.img_url" />
-      Likes:
-      <input type="text" v-model="editPetParams.likes" />
-      Dislikes:
-      <input type="text" v-model="editPetParams.dislikes" />
-      Fixed:
-      <input type="boolean" v-model="editPetParams.fixed" />
-      <button v-on:click="destroyPet(pet)">Destroy pet</button>
-      <button v-on:click="updatePet(pet)">Update pet</button>
-      <button v-on:click="cancelChange()">Cancel</button>
-    </form>
-  </div>
+  <body>
+    <main id="main">
+      <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+          <div class="row">
+            <div class="col-lg-8 entries">
+              <div class="blog-comments">
+                <div class="reply-form">
+                  <h4>Edit Pet</h4>
+                  <ul>
+                    <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
+                  </ul>
+                  <form v-on:submit.prevent="updatePet(pet)">
+                    <div class="row">
+                      <div class="col form-group">
+                        Name:
+                        <input type="text" class="form-control" v-model="editPetParams.name" placeholder="Pet Name" />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col form-group">
+                        Description:
+                        <input
+                          type="text"
+                          class="form-control"
+                          v-model="editPetParams.description"
+                          placeholder="Pet Description"
+                        />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col form-group">
+                        Gender
+                        <input
+                          type="text"
+                          class="form-control"
+                          v-model="editPetParams.gender"
+                          placeholder="Pet Gender"
+                        />
+                        Image Link:
+                        <input
+                          type="text"
+                          class="form-control"
+                          v-model="editPetParams.img_url"
+                          placeholder="Pet Imgage Link"
+                        />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col form-group">
+                        Image Link:
+                        <input
+                          type="text"
+                          class="form-control"
+                          v-model="editPetParams.img_url"
+                          placeholder="Pet Imgage Link"
+                        />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col form-group">
+                        Likes:
+                        <input type="text" class="form-control" v-model="editPetParams.likes" placeholder="Pet Likes" />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col form-group">
+                        Dislikes:
+                        <input
+                          type="text"
+                          class="form-control"
+                          v-model="editPetParams.dislikes"
+                          placeholder="Pet Dislikes"
+                        />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col form-group">
+                        <p>
+                          <input type="radio" id="one" value="true" v-model="editPetParams.fixed" />
+                          <label for="one">True</label>
+                        </p>
+                        <p>
+                          <input type="radio" id="two" value="false" v-model="editPetParams.fixed" />
+                          <label for="two">False</label>
+                        </p>
+                      </div>
+                    </div>
+                    <button v-on:click="destroyPet(pet)" class="btn btn-primary">Destroy</button>
+                    <button v-on:click="updatePet(pet)" class="btn btn-primary">Update</button>
+                    <button v-on:click="cancelChange()" class="btn btn-primary">Cancel</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
   <h1>Example Pet Show:</h1>
   <div>
     <h2>{{ editPetParams.name }}</h2>
